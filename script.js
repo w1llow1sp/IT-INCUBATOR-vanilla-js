@@ -1,292 +1,34 @@
-// links to watch theory
-// https://www.youtube.com/watch?v=6napu-MGQDo&list=PLcvhF2Wqh7DNVy1OCUpG3i5lyxyBWhGZ8&index=47
-// https://www.youtube.com/watch?v=I8LNJpG60vI&feature=youtu.be
+//1. Реализуйте функцию, которая принимает параметром подсторку, число повторов и разделитель, а возвращает сторку, состоящую из указанного количества повторов подстроки с использованием разделителя.
+// repeatString("yo", 3, " ") => "yo yo yo"
+// repeatString("yo", 3, ",") => "yo,yo,yo"
+// for или str.repeat()
 
-// 1. Simple object
-let man = {
-    name: 'John',
-    age: 28
-};
-//solve
-let manFullCopy  = {...man}
+//2. Реализуйте функцию, которая принимает параметром сторку и подстроку, а возвращает true, если строка начинается с указанной подстроки, в противном случае - false. Регистр не учитывается.
+// checkStart("Incubator", "inc") => true
+// checkStart("Incubator", "yo") => false
+// str.startWith() slice indexOF
 
-/*
-console.log(man === manFullCopy)
-manFullCopy.name='Jack'
-console.log(man.name)
-console.log(manFullCopy.name)
-*/
+//3. Реализуйте функцию, которая принимает параметром строку и число (количество символов), а возвращает строку из параметров, обрезанную до указанного количества символов и завершает её многоточием.
+//truncateString("Всем студентам инкубатора желаю удачи!", 10) => "Всем студе..."
 
-// 2. Array of primitives
-let numbers = [1, 2, 3];
-//solve
-/*let numbersFullCopy  = numbers.map(el=>el)
-console.log(numbers === numbersFullCopy)
-numbersFullCopy.push(4)
-console.log(numbers.length)
-console.log(numbersFullCopy.length)*/
+//4. Реализуйте функцию, которая принимает параметром сторку (предложение) и возвращает самое короткое слово в предложении, если в параметрах пустая строка, то возвращает null.
+// getMinLengthWord("Всем студентам инкубатора желаю удачи!") => "Всем"
+// getMinLengthWord("") => null
+// split()
 
-// 3. Object inside an object
-let man1 = {
-    name: 'John',
-    age: 28,
-    mother: {
-        name: 'Kate',
-        age: 50
-    }
-};
-//solve
-/*let man1FullCopy = {
-    ...man1, mother:{
-        ...man1.mother}
-}
-console.log(man1===man1FullCopy)
-console.log(man1.mother)
-man1FullCopy.mother = {
-    name: 'Jane',
-    age: 42
-}
-console.log(man1FullCopy.mother)
-console.log(man1)
-console.log(man1FullCopy)*/
+//5. Реализуйте функцию, которая принимает параметром сторку (предложение) и возвращает то же предложение, где все слова написаны строчными, но начинаются с заглавных букв.
+// setUpperCase("всем стУдентам инкуБатора Желаю удачИ!") => "Всем Студентам Инкубатора Желаю Удачи!"
 
+// !!!!!!!!!!!!!!!!!!После решения 5 задач - поднимаем руку!!!!!!!!
 
-// 4. Array of primitives inside an object
-let man2 = {
-    name: 'John',
-    age: 28,
-    friends: ["Peter", "Steven", "William"]
-};
-//solve
-/*
-let man2FullCopy = {
-    ...man2,
-    friends: [...man2.friends.map(el=>el)]
-}
+//6. Реализуйте функцию, котрая принимает параметрами строку и подстроку. Если все
+// символы подстроки содержаться в стороке - возвращает true, если нет -
+// возвращает false. Проверка проводится без учёта регистра и без учётом
+// повторяющихся символов.
+//* попробовать учитывать повтор символов в подстроке
 
-console.log(man2)
-console.log(man2FullCopy)
-console.log(man2===man2FullCopy)
-man2FullCopy.friends.push('Alice')
-console.log(man2FullCopy.friends.length)
-console.log(man2.friends.length)*/
-
-
-// 5 Array of objects
-let people = [
-    {name: "Peter", age: 30},
-    {name: "Steven", age: 32},
-    {name: "William", age: 28}
-];
-//solve
-
-let peopleFullCopy = people.map((el) => {
-    return {...el}})
-/*console.log(people === peopleFullCopy)
-peopleFullCopy = [...peopleFullCopy,{name: "Mary", age: 23}]
-console.log(people)
-console.log(peopleFullCopy)*/
-
-// 6 Array of objects inside object
-let man3 = {
-    name: 'John',
-    age: 28,
-    friends: [
-        {name: "Peter", age: 30},
-        {name: "Steven", age: 32},
-        {name: "William", age: 28}
-    ]
-};
-
-//solve
-
-let man3FullCopy = {
-    ...man3,
-    friends:[...man3.friends]
-}
-/*console.log(man3 === man3FullCopy)
-//
-man3FullCopy = {...man3FullCopy,
-name: man3FullCopy.name= 'Jasper'}
-//
-man3FullCopy = {...man3FullCopy,
-friends: [...man3FullCopy.friends,{name: "Mary", age: 23}]}
-//
-console.log(man3FullCopy.friends)
-console.log(man3.friends)*/
-
-
-// 7 Object inside an object, inside an object
-let man4 = {
-    name: 'John',
-    age: 28,
-    mother: {
-        name: "Kate",
-        age: 50,
-        work: {
-            position: "doctor",
-            experience: 15
-        }
-    }
-};
-//solve
-let man4FullCopy = {
-    ...man4,
-     mother: {...man4.mother,
-        work: {...man4.mother.work}
-    }
-}
-/*
-
-console.log(man4FullCopy===man4)
-man4FullCopy.mother.work.position = 'hairdresser'
-man4FullCopy.mother.work.experience =7
-console.log(man4FullCopy.mother.work)
-console.log(man4.mother.work)
-*/
-
-
-// 8 Array of objects inside object -> object
-let man5 = {
-    name: 'John',
-    age: 28,
-    mother: {
-        name: "Kate",
-        age: 50,
-        work: {
-            position: "doctor",
-            experience: 15
-        },
-        parents: [
-            {name: "Kevin", age: 80},
-            {name: "Jennifer", age: 78},
-        ]
-    }
-};
-//solve
-let man5FullCopy = {
-    ...man5,
-    mother: {...man5.mother,
-        work:{...man5.mother.work},
-        parents:[...man5.mother.parents.map(el => {
-            return {...el}
-        })]
-    }
-}
-/*console.log(man5===man5FullCopy)
-man5FullCopy.mother.parents[0].name= 'Sam'
-man5FullCopy.mother.parents[0].age= 75
-console.log(man5FullCopy.mother.parents)
-console.log(man5.mother.parents)
-console.log()*/
-
-
-// 9 Object inside an object -> array -> object ->  object
-let man6 = {
-    name: 'John',
-    age: 28,
-    mother: {
-        name: "Kate",
-        age: 50,
-        work: {
-            position: "doctor",
-            experience: 15
-        },
-        parents: [
-            {
-                name: "Kevin",
-                age: 80,
-                favoriteDish: {
-                    title: "borscht"
-                }
-            },
-            {
-                name: "Jennifer",
-                age: 78,
-                favoriteDish: {
-                    title: "sushi"
-                }
-            },
-        ]
-    }
-};
-//solve
-let man6FullCopy  = {
-    ...man6,
-    mother: {...man6.mother,
-        work: {...man6.mother.work},
-        parents:[...man6.mother.parents.map(el => {
-            return {...el}
-    })]}
-}
-
-/*
-console.log(man6===man6FullCopy)
-console.log(man6.mother.parents[0].favoriteDish)
-man6FullCopy.mother.parents[0].favoriteDish.title = 'Cesar'
-console.log(man6FullCopy.mother.parents[0].favoriteDish)
-*/
-
-
-//10 Array of objects inside an object -> object -> array -> object ->  object
-let man7 = {
-    name: 'John',
-    age: 28,
-    mother: {
-        name: "Kate",
-        age: 50,
-        work: {
-            position: "doctor",
-            experience: 15
-        },
-        parents: [
-            {
-                name: "Kevin",
-                age: 80,
-                favoriteDish: {
-                    title: "borscht",
-                    ingredients: [
-                        {title: "beet", amount: 3},
-                        {title: "potatoes", amount: 5},
-                        {title: "carrot", amount: 1},
-                    ]
-                }
-            },
-            {
-                name: "Jennifer",
-                age: 78,
-                favoriteDish: {
-                    title: "sushi",
-                    ingredients: [
-                        {title: "fish", amount: 1},
-                        {title: "rise", amount: 0.5}
-                    ]
-                }
-            },
-        ]
-    }
-};
-//solve
-/*let man7FullCopy = structuredClone(man7)*/
-//or
-let man7FullCopy = {
-    ...man7,
-    mother: {
-        ...man7.mother,
-        work: {...man7.mother.work},
-        parents: man7.mother.parents.map(parent => ({
-            ...parent,
-            favoriteDish: {
-                ...parent.favoriteDish,
-                ingredients: [...parent.favoriteDish.ingredients]
-            }
-        }))
-    }}
-
-
-console.log(man7FullCopy)
-console.log(man7)
-console.log(man7.mother.parents[0].favoriteDish.ingredients === man7FullCopy.mother.parents[0].favoriteDish.ingredients)
-man7FullCopy.mother.parents[0].favoriteDish.title='Vine'
-console.log(man7FullCopy.mother.parents[0].favoriteDish.title)
-console.log(man7.mother.parents[0].favoriteDish.title)
+// isIncludes("Incubator", "Cut") => true
+// isIncludes("Incubator", "table") => false
+// isIncludes("Incubator", "inbba") => true
+// isIncludes("Incubator", "inba") => true
+// isIncludes("Incubator", "Incubatorrr")=> true
